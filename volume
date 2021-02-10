@@ -1,0 +1,17 @@
+> connecting directory to container
+1. docker run -v ~/data:/data ubuntu
+`/data under home will be sync with /data inside container`
+
+> connecting volume made by docker to container
+1. docker run -v data:/data --name u1 ubuntu
+`here volume will be created by docker under some directory`
+
+> Check what all volumes are present
+1. docker volume ls 
+
+> inspect a volume to check where it is mounted
+1. docker volume inspect data
+
+> To connect new container to existing container's volume
+1. docker run --volumes-from u1 ubuntu
+`now in this new container /data will be created which is in sync with u1's /data which is in sync with our local machines directory.`

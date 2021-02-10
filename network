@@ -1,0 +1,20 @@
+> To list networks
+1. docker network ls
+
+> To create a bridge network
+1. docker network create inc1
+
+> To make container and mention network
+1. docker run -it --name u-rich1 --network inc1 ubuntu bash
+
+> To include a container inside a bridge
+1. docker network connect inc1 u-rich1
+`now u-rich1 container is connected to inc1 network`
+
+`All container are by default under bridge network and can communicate with each other in same host.`
+
+> Check if network is connected by pinging
+1. ping ip-address
+
+> To get ip address
+1. docker inspect container_name/id
